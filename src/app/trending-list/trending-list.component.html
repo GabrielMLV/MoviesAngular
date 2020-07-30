@@ -1,0 +1,41 @@
+<div class="uk-section uk-section-default">
+    <div class="uk-container">
+        <h1 class="uk-heading-line"><span>Populares hoje</span></h1>
+        <div *ngIf="!trends" class="uk-flex uk-flex-center">
+            <span class="uk-margin-small-right uk-position-center" uk-spinner="ratio: 3"></span>
+        </div>
+        <div *ngIf="trends !== undefined" class="uk-grid-small uk-child-width-1-3@s" uk-grid>
+            <div *ngFor="let td of trends.results">
+                <div class="uk-card uk-card-default uk-card-small uk-card-hover uk-grid-collapse uk-margin uk-animation-slide-top-small"
+                    uk-grid>
+
+                    <div class="uk-card-header" style="width: 100%;">
+                        <div class="uk-grid-small uk-flex-middle" uk-grid>
+                            <div class="uk-width-auto">
+                                <img width="100" height="180" class="uk-align-left"
+                                    src="https://image.tmdb.org/t/p/original/{{ td.poster_path }}">
+                            </div>
+                            <div class="uk-width-expand uk-align-top">
+                                <h3 class="uk-card-title uk-margin-remove-bottom">{{td.title || td.name}}</h3>
+                                <p class="uk-text-meta uk-margin-remove-top"><span class="uk-badge">Rating:
+                                        {{td.vote_average}}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 100% !important;">
+
+                        <div class="uk-card-body">
+                            <p class="uk-panel uk-panel-box uk-text-truncate uk-dropcap">{{td.overview}}</p>
+                        </div>
+                        <div class="uk-card-footer">
+                            <a href="#" class="uk-button uk-button-text">Saiba mais</a>
+                            <span class="uk-align-right	">{{td.media_type}}</span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
