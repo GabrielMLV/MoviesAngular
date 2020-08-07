@@ -87,11 +87,84 @@
 <!--/HEADER-->
 <div class="spacer"></div>
 
+		<!-- OFFCANVAS -->
+		<div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: true">
+			<div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+				<button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
+				<ul class="uk-nav uk-nav-default">
+					<li class="uk-active"><a href="#">Active</a></li>
+					<li class="uk-parent">
+						<a href="#">Parent</a>
+						<ul class="uk-nav-sub">
+							<li><a href="#">Sub item</a></li>
+							<li><a href="#">Sub item</a></li>
+						</ul>
+					</li>
+					<li class="uk-nav-header">Header</li>
+					<li><a href="#js-options"><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: table"></span> Item</a></li>
+					<li><a href="#"><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: thumbnails"></span> Item</a></li>
+					<li class="uk-nav-divider"></li>
+					<li><a href="#"><span class="uk-margin-small-right uk-icon" data-uk-icon="icon: trash"></span> Item</a></li>
+				</ul>
+				<h3>Title</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+		</div>
+		<!-- /OFFCANVAS -->
 
-
-<footer style="background: #333333b8;" id="site-foot" class="uk-section uk-section-secondary uk-section-xsmall">
+<!-- <footer style="background: #333333b8;" id="site-foot" class="uk-section uk-section-secondary uk-section-xsmall">
   <div class="uk-container uk-text-small uk-text-center">
     <a title="Visite o meu linkedin" target="_blank" href="https://www.linkedin.com/in/gabriel-matheus-a54907144/">Created by Gabriel Matheus <span data-uk-icon="icon:linkedin; ratio: 0.8"></span></a> | Built with <a href="https://getuikit.com" title="Uikit" target="_blank" data-uk-tooltip><span data-uk-icon="icon:uikit; ratio: 0.8"></span> </a>
   </div>
-</footer>
+</footer> -->
+
 <router-outlet></router-outlet>
+
+		<!-- FOOTER -->
+		<footer class="uk-section uk-section-secondary uk-padding-remove-bottom">
+			<div class="uk-container">
+				<div class="uk-grid uk-grid-large" data-uk-grid>
+					<div class="uk-width-1-2@m">
+						<h5>Gabriel Matheus Lopes de Veras</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud cillum dolore eu fugiat nulla contact to: <a href="#" title="">info@company.com</a></p>
+						<div>
+							<a href="" class="uk-icon-button" data-uk-icon="twitter"></a>
+							<a target="_blank" href="https://www.linkedin.com/in/gabriel-matheus-a54907144/" class="uk-icon-button" data-uk-icon="linkedin"></a>
+							<a href="" class="uk-icon-button" data-uk-icon="instagram"></a>
+						</div>
+					</div>
+					<div class="uk-width-1-6@m">
+						<h5>PRODUCTS</h5>
+						<ul class="uk-list">
+							<li>Big Data</li>
+							<li>Marketing</li>
+							<li>Analytics</li>
+							<li>AI Lab</li>
+						</ul>
+					</div>
+					<div class="uk-width-1-6@m">
+						<h5>OUR COMPANY</h5>
+						<ul class="uk-list">
+							<li>Team</li>
+							<li>Work</li>
+							<li>Culture</li>
+							<li>Contact Us</li>
+						</ul>
+					</div>
+					<div class="uk-width-1-6@m">
+						<h5>OUR OFFICES</h5>
+						<ul class="uk-list">
+							<li>London</li>
+							<li>Chicago</li>
+							<li>Dubai</li>
+							<li>Brussels</li>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+			
+			<div class="uk-text-center uk-padding uk-padding-remove-horizontal">
+				<span class="uk-text-small uk-text-muted">© 2020 Created by Gabriel Matheus | Built with <a href="http://getuikit.com" title="Visit UIkit 3 site" target="_blank" data-uk-tooltip><span data-uk-icon="uikit"></span></a></span>
+			</div>
+		</footer>
