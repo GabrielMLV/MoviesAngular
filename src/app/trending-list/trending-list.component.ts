@@ -23,4 +23,5 @@ export class TrendingListComponent implements OnInit {
     });
   }
 
+
 }

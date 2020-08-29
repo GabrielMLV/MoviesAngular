@@ -3,5 +3,12 @@
 @import "./node_modules/uikit/src/scss/variables-theme.scss";
 @import "./node_modules/uikit/src/scss/mixins-theme.scss";
 @import "./node_modules/uikit/src/scss/uikit-theme.scss";
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext');
+
+
+$custom-typography: mat-typography-config($font-family: '"Quicksand", sans-serif;');
+@include mat-core($custom-typography);
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Quicksand, "Quicksand", sans-serif; }

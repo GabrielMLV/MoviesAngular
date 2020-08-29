@@ -18,13 +18,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { routing } from './app-routing.module';
 import { TrendingListComponent } from './trending-list/trending-list.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieCreateComponent,
     MovieListComponent,
-    TrendingListComponent
+    TrendingListComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

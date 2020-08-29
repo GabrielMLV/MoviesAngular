@@ -1,0 +1,72 @@
+<section
+  class="uk-section uk-section-small uk-section-default uk-padding-remove-bottom" uk-scrollspy="cls: uk-animation-fade; target: .uk-container; delay: 500; repeat: false"
+>
+  <div class="uk-container uk-container-expand uk-margin-large-bottom">
+    <ul class="uk-breadcrumb">
+      <li><a [routerLink]="['/trends']">Home</a></li>
+      <li><span>Detalhes</span></li>
+    </ul>
+    <div
+      class="uk-card uk-card-secondary uk-grid-collapse uk-child-width-1-2@s uk-margin"
+      uk-grid
+    >
+      <div
+        class="uk-card-media-left uk-cover-container"
+        uk-scrollspy="cls: uk-animation-slide-left; repeat: false"
+      >
+        <img
+          src="https://image.tmdb.org/t/p/original/{{ details.backdrop_path }}"
+          alt=""
+          uk-cover
+        />
+        <canvas width="600" height="400"></canvas>
+      </div>
+      <div>
+        <div
+          class="uk-card-body"
+          uk-scrollspy="cls: uk-animation-slide-right; repeat: false"
+        >
+          <div
+            class="uk-card-badge uk-label"
+            style="background: goldenrod; color: white; font-weight: 900"
+          >
+            {{ details.vote_average }}
+          </div>
+          <h1 class="uk-card-title" style="font-weight: bold">
+            {{ details.title }}
+          </h1>
+          <p class="uk-text-meta uk-margin-remove-top">
+            <time datetime="2016-04-01T19:00"
+              >Data de lançamento
+              {{ details.release_date | date: "dd/MM/yyyy" }}</time
+            >
+          </p>
+          <p>{{ details.overview }}</p>
+          <p>
+            <span style="color: white">Duração:</span>
+            {{ timeConvert(details.runtime) }}
+          </p>
+          <h3>Gênero</h3>
+          <div  class="uk-flex uk-flex-left">
+              <div *ngFor="let comp of details.genres">
+                <div class="uk-margin-left" style="padding: 10px 0px;">
+                    <span style="padding: 5px; border: 1px solid gray">{{
+                      comp.name
+                    }}</span>
+                  </div>
+              </div>
+             
+          </div>
+        </div>
+        <div class="uk-card-footer">
+          <a
+            href="{{ details.homepage }}"
+            target="_blank"
+            class="uk-button uk-button-text"
+            >Acesse a página principal</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -7,6 +7,7 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApimovieService {
+  
 
   URL = 'https://api.themoviedb.org/3';
   key_id = "c17037565d3e126bc17b1c6e738eb4e2";
@@ -26,6 +27,10 @@ export class ApimovieService {
 
   getTrendingDay(numbpage) {
     return this.httpClient.get('' + this.URL + '/trending/all/day?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage + '&include_adult=false').pipe(catchError(this.handleError));
+  }
+
+  getDetails(id) {
+    return this.httpClient.get('' + this.URL + '/movie/'+id+'?api_key=' + this.key_id + '&language=pt-BR' + '').pipe(catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {
