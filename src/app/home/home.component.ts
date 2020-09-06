@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   public numbpage = 1;
   public trendsHome;
+  public popularHome;
+  public tvLatest;
   public searchMovieTrend;
   public imgDefault = "../../assets/notImg.png";
 
@@ -17,6 +19,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.callTrendDay(this.numbpage);
+    this.callMoviePopular(this.numbpage);
+    this.calTvLatest(this.numbpage);
   }
 
   callTrendDay(numbpage: number) {
@@ -25,6 +29,21 @@ export class HomeComponent implements OnInit {
       this.trendsHome = data;
     });
   }
+
+  callMoviePopular(numbpage: number) {
+    this.apimovieService.getMovies(numbpage).subscribe((data: Array<Object>) => {
+      console.log(data);
+      this.popularHome = data;
+    });
+  }
+
+  calTvLatest(numbpage: number) {
+    this.apimovieService.getTv(numbpage).subscribe((data: Array<Object>) => {
+      console.log(data);
+      this.tvLatest = data;
+    });
+  }
+  
 
   callMovieSearch(search, numbpage) {
     this.apimovieService.getMultiSearch(search, numbpage).subscribe((data: Array<Object>) => {

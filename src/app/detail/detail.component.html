@@ -5,9 +5,9 @@
       <li><span>{{detailNamePage}}</span></li>
     </ul>
     <div class="uk-card uk-card-secondary uk-grid-collapse uk-child-width-1-2@s uk-margin uk-animation-fade" uk-grid>
-      <div class="uk-card-media-left uk-cover-container uk-animation-slide-left-small">
-        <img src="https://image.tmdb.org/t/p/original/{{ details.backdrop_path }}" alt="" uk-cover />
-        <canvas width="600" height="400"></canvas>
+      <div class="uk-card-media-left  uk-animation-slide-left-small">
+        <img src="https://image.tmdb.org/t/p/original/{{ details.backdrop_path }}" alt=""  />
+       <!--  <canvas width="600" height="400"></canvas> -->
       </div>
       <div>
         <div class="uk-card-body uk-animation-slide-right-small">
@@ -15,7 +15,7 @@
             {{ details.vote_average }}
           </div>
           <h1 class="uk-card-title" style="font-weight: bold">
-            {{ details.title }}
+            {{ details.title  || details.name}}
           </h1>
           <p class="uk-text-meta uk-margin-remove-top">
             <time datetime="2016-04-01T19:00">Data de lançamento

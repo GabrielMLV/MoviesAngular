@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'movies', component: MovieListComponent },
   { path: 'trends', component: TrendingListComponent },
-  { path: 'detail/:id', component: DetailComponent },
+  { path: 'detail/:type/:id', component: DetailComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', redirectTo: '' }
 ];

@@ -1,141 +1,189 @@
-<!-- <div class="uk-section uk-section-default">
-  <div class="uk-container">
-    <h1 class="uk-heading-line"><span>Populares hoje</span></h1>
-    <div *ngIf="!trendsHome" class="uk-flex uk-flex-center">
-      <span
-        class="uk-margin-small-right uk-position-center"
-        uk-spinner="ratio: 3"
-      ></span>
-    </div>
-    <div
-      *ngIf="trendsHome !== undefined"
-      class="uk-grid-small uk-child-width-1-3@s"
-      uk-grid
-    >
-      <div *ngFor="let td of trendsHome.results">
-        <div
-          class="uk-card uk-card-default uk-card-small uk-card-hover uk-grid-collapse uk-margin uk-animation-slide-top-small"
-          uk-grid
-        >
-          <div class="uk-card-header" style="width: 100%;">
-            <div class="uk-grid-small uk-flex-middle" uk-grid>
-              <div class="uk-width-auto">
-                <img
-                  width="100"
-                  height="180"
-                  class="uk-align-left"
-                  src="https://image.tmdb.org/t/p/original/{{ td.poster_path }}"
-                />
-              </div>
-              <div class="uk-width-expand uk-align-top">
-                <h3 class="uk-card-title uk-margin-remove-bottom">
-                  {{ td.title || td.name }}
-                </h3>
-                <p class="uk-text-meta uk-margin-remove-top">
-                  <span class="uk-badge">Rating: {{ td.vote_average }}</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div style="width: 100% !important;">
-            <div class="uk-card-body">
-              <p class="uk-panel uk-panel-box uk-text-truncate uk-dropcap">
-                {{ td.overview }}
-              </p>
-            </div>
-            <div class="uk-card-footer">
-              <a href="#" class="uk-button uk-button-text">Saiba mais</a>
-              <span class="uk-align-right">{{ td.media_type }}</span>
-            </div>
-          </div>
-        </div>
-        <br />
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <div id="modal-full" class="uk-modal-full uk-modal" uk-modal>
-    <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
-      <button class="uk-modal-close-full" type="button" uk-close></button>
-      <form class="uk-search uk-search-large">
-        <input (input)="searchMovieTrend=$event.target.value" class="uk-search-input uk-text-center" type="search"
-          placeholder="O que deseja pesquisar ?" autofocus>
-      </form>
-      <div class="uk-flex uk-flex-center">
-        <button (click)="goMovieSearch()" class="uk-button uk-button-secondary uk-margin-top">Pesquisar</button>
-      </div>
+  <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
+    <button class="uk-modal-close-full" type="button" uk-close></button>
+    <form class="uk-search uk-search-large">
+      <input (input)="searchMovieTrend=$event.target.value" class="uk-search-input uk-text-center" type="search"
+        placeholder="O que deseja pesquisar ?" autofocus>
+    </form>
+    <div class="uk-flex uk-flex-center">
+      <button (click)="goMovieSearch()" class="uk-button uk-button-secondary uk-margin-top">Pesquisar</button>
     </div>
   </div>
-  
-  <section class="uk-section uk-section-small uk-section-default uk-padding-remove-bottom">
-    <div class="uk-container uk-container-expand uk-margin-large-bottom" uk-filter="target: .js-filter">
-      <div class="search">
-        <input (input)="searchMovieTrend=$event.target.value" type="text" class="searchTerm"
-          placeholder="O que deseja pesquisar ?">
-        <button (click)="goMovieSearch()" type="submit" class="searchButton">
-          <span uk-icon="icon: search; ratio: 1"></span>
-        </button>
-      </div>
-      <br>
-      <h1 class="uk-heading-line"><span>Populares hoje</span></h1>
-      <br>
-      <div style="padding-bottom: 10px;" *ngIf="trendsHome !== undefined"
-        class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1" uk-slider="autoplay: true; autoplay-interval: 3500">
-  
-        <ul  class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid">
-          <div *ngFor="let td of trendsHome.results">
-        <div class="{{ td.media_type }}" data-tags="a beautiful landscape - nature outdoor">
-          <div class="uk-card uk-card-small uk-link-toggle uk-card-default " [routerLink]="['/detail', td.id]">
-            <div class="uk-card-header">
-              <div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
-                <div class="uk-width-expand">
-                  <span *ngIf="td.media_type == 'movie'" class="cat-txt">Filme</span>
-                  <span *ngIf="td.media_type == 'tv'" class="cat-txt">Série / Tv</span>
-                </div>
-                <div class="uk-width-auto uk-text-right uk-text-muted">
-                  <span data-uk-icon="icon:star; ratio: 0.8"></span> {{td.vote_average}}
-                </div>
-              </div>
-            </div>
-            <div class="uk-card-media">
-              <div class="uk-inline-clip uk-transition-toggle uk-flex uk-flex-center" tabindex="0">
-                <img class="lazy" style="height: 372px; width: 248px" data-width="100" data-height="100" alt=""
-                  src="https://image.tmdb.org/t/p/original/{{ td.poster_path }}" />
-                <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
-                  <span data-uk-icon="icon:heart; ratio: 0.8"></span> {{td.popularity}}
+</div>
+
+<section class="uk-section uk-section-small uk-section-default uk-padding-remove-bottom">
+  <div class="uk-container uk-container-expand uk-margin-large-bottom" uk-filter="target: .js-filter">
+    <div class="search">
+      <input (input)="searchMovieTrend=$event.target.value" type="text" class="searchTerm"
+        placeholder="O que deseja pesquisar ?">
+      <button (click)="goMovieSearch()" type="submit" class="searchButton">
+        <span uk-icon="icon: search; ratio: 1"></span>
+      </button>
+    </div>
+    <br>
+    <h1 class="uk-heading-line"><span>Populares hoje</span></h1>
+    <br>
+    <div *ngIf="!trendsHome" class="uk-flex uk-flex-center">
+      <span class="uk-margin-small-right uk-position-center" uk-spinner="ratio: 3"></span>
+    </div>
+    <div style="padding-bottom: 10px;" *ngIf="trendsHome !== undefined"
+      class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1"
+      uk-slider="autoplay: true; autoplay-interval: 4500">
+
+      <ul
+        class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid">
+        <div *ngFor="let td of trendsHome.results">
+          <div class="{{ td.media_type }}" data-tags="a beautiful landscape - nature outdoor">
+            <div class="uk-card uk-card-small uk-link-toggle uk-card-default " [routerLink]="['/detail', td.media_type, td.id]">
+              <div class="uk-card-header">
+                <div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+                  <div class="uk-width-expand">
+                    <span *ngIf="td.media_type == 'movie'" class="cat-txt">Filme</span>
+                    <span *ngIf="td.media_type == 'tv'" class="cat-txt">Série / Tv</span>
+                  </div>
+                  <div class="uk-width-auto uk-text-right uk-text-muted">
+                    <span data-uk-icon="icon:star; ratio: 0.8"></span> {{td.vote_average}}
+                  </div>
                 </div>
               </div>
+              <div class="uk-card-media">
+                <div class="uk-inline-clip uk-transition-toggle uk-flex uk-flex-center" tabindex="0">
+                  <img class="lazy" style="height: 372px; width: 248px" data-width="100" data-height="100" alt=""
+                    src="https://image.tmdb.org/t/p/original/{{ td.poster_path }}" />
+                  <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                    {{ td.title || td.name }}                
+                  </div>
+                </div>
+              </div>
+              <div class="uk-card-body">
+                <h4 class="uk-margin-small-bottom uk-margin-remove-adjacent uk-text-bold">
+                  <span style="color:red;" data-uk-icon="icon:heart; ratio: 0.8"></span> {{td.popularity}}
+                </h4>
+
+              </div>
+
             </div>
-            <div class="uk-card-body">
-              <h5 class="uk-margin-small-bottom uk-margin-remove-adjacent uk-text-bold uk-link-heading">
-                {{ td.title || td.name }}
-              </h5>
-            
-            </div>
-            
           </div>
         </div>
+      </ul>
 
-
-
-
-
-
-
-          </div>
-        </ul>
-  
-        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
-          uk-slider-item="previous"></a>
-        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
-          uk-slider-item="next"></a>
-          <button [routerLink]="['/trends']" class="uk-button uk-button-text uk-margin-top uk-align-right">Visualizar mais populares</button>
-      </div>
-  
-      <div *ngIf="!trendsHome" class="uk-flex uk-flex-center">
-        <span class="uk-margin-small-right uk-position-center" uk-spinner="ratio: 3"></span>
-      </div>
-     
+      <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+        uk-slider-item="previous"></a>
+      <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+        uk-slider-item="next"></a>
+      <button [routerLink]="['/trends']" class="uk-button uk-button-text uk-margin-top uk-align-right">Visualizar mais
+        populares</button>
     </div>
-  </section>
+    <!-- end trending -->
+    <h1 class="uk-heading-line"><span>Filmes populares</span></h1>
+    <br>
+    <div *ngIf="!popularHome" class="uk-flex uk-flex-center">
+      <span class="uk-margin-small-right uk-position-center" uk-spinner="ratio: 3"></span>
+    </div>
+    <div style="padding-bottom: 10px;" *ngIf="popularHome !== undefined"
+      class="uk-slider-container uk-position-relative uk-visible-toggle uk-dark" tabindex="-1"
+      uk-slider="autoplay: true; autoplay-interval: 4500">
+
+      <ul
+        class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid">
+        <div *ngFor="let td of popularHome.results">
+          <div class="movie" data-tags="a beautiful landscape - nature outdoor">
+            <div class="uk-card uk-card-small uk-link-toggle uk-card-default " [routerLink]="['/detail', 'movie', td.id]">
+              <div class="uk-card-header">
+                <div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+                  <div class="uk-width-expand">
+                    <span class="cat-txt">Filme</span>
+                  </div>
+                  <div class="uk-width-auto uk-text-right uk-text-muted">
+                    <span data-uk-icon="icon:star; ratio: 0.8"></span> {{td.vote_average}}
+                  </div>
+                </div>
+              </div>
+              <div class="uk-card-media">
+                <div class="uk-inline-clip uk-transition-toggle uk-flex uk-flex-center" tabindex="0">
+                  <img class="lazy" style="height: 372px; width: 248px" data-width="100" data-height="100" alt=""
+                    src="https://image.tmdb.org/t/p/original/{{ td.poster_path }}" />
+                  <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                    {{ td.title || td.name }} 
+                  </div>
+                </div>
+              </div>
+              <div class="uk-card-body">
+                <h4 class="uk-margin-small-bottom uk-margin-remove-adjacent uk-text-bold">
+                  <span style="color:red;" data-uk-icon="icon:heart; ratio: 0.8"></span> {{td.popularity}}
+                </h4>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ul>
+
+      <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+        uk-slider-item="previous"></a>
+      <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+        uk-slider-item="next"></a>
+      <button [routerLink]="['/movie']" class="uk-button uk-button-text uk-margin-top uk-align-right">Visualizar mais
+        filmes</button>
+    </div>
+    <!-- end popular -->
+    <h1 class="uk-heading-line"><span>Séries populares</span></h1>
+    <br>
+    <div *ngIf="!tvLatest" class="uk-flex uk-flex-center">
+      <span class="uk-margin-small-right uk-position-center" uk-spinner="ratio: 3"></span>
+    </div>
+    <div style="padding-bottom: 10px;" *ngIf="tvLatest !== undefined"
+      class="uk-position-relative uk-visible-toggle uk-dark" tabindex="-1"
+      uk-slider="autoplay: true; autoplay-interval: 4500">
+
+      <ul
+        class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid">
+        <div *ngFor="let td of tvLatest.results">
+          <div class="tv" data-tags="a beautiful landscape - nature outdoor">
+            <div class="uk-card uk-card-small uk-link-toggle uk-card-default " [routerLink]="['/detail', 'tv', td.id]">
+              <div class="uk-card-header">
+                <div class="uk-grid uk-grid-small uk-text-small" data-uk-grid>
+                  <div class="uk-width-expand">
+                    <span class="cat-txt">Série / Tv</span>
+                  </div>
+                  <div class="uk-width-auto uk-text-right uk-text-muted">
+                    <span data-uk-icon="icon:star; ratio: 0.8"></span> {{td.vote_average}}
+                  </div>
+                </div>
+              </div>
+              <div class="uk-card-media">
+                <div class="uk-inline-clip uk-transition-toggle uk-flex uk-flex-center" tabindex="0">
+                  <img class="lazy" style="height: 372px; width: 248px" data-width="100" data-height="100" alt=""
+                    src="https://image.tmdb.org/t/p/original/{{ td.poster_path }}" />
+                  <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
+                    {{ td.title || td.name }} 
+                  </div>
+                </div>
+              </div>
+              <div class="uk-card-body">
+                <h4 class="uk-margin-small-bottom uk-margin-remove-adjacent uk-text-bold">
+                  <span style="color:red;" data-uk-icon="icon:heart; ratio: 0.8"></span> {{td.popularity}}
+                </h4>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ul>
+
+      <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+        uk-slider-item="previous"></a>
+      <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+        uk-slider-item="next"></a>
+      <button [routerLink]="['/tv']" class="uk-button uk-button-text uk-margin-top uk-align-right">Visualizar mais
+        séries</button>
+    </div>
+
+
+  
+
+  </div>
+</section>

@@ -12,35 +12,56 @@ export class DetailComponent implements OnInit {
 
   public details;
   private id;
+  private type;
   public similar;
   public detailNamePage = "Detalhes";
   public numbpage = 1;
-  constructor(private apimovieService: ApimovieService,private _Activatedroute:ActivatedRoute, private router: Router) { }
+  constructor(private apimovieService: ApimovieService, private _Activatedroute: ActivatedRoute, private router: Router) { }
   /* Using Subscribe */
   sub;
   ngOnInit(): void {
-    this.sub=this._Activatedroute.paramMap.subscribe(params => { 
-       console.log(params);
-       this.id = params.get('id'); 
-       this.getSimilarMovies(this.id);
-       this.apimovieService.getDetails(this.id).subscribe((data: Array<Object>) => {
-        console.log(data);
-        this.details = data;
-      });
-       //this.detail=details.find(p => p.id==this.id);   
-   });
+    this.sub = this._Activatedroute.paramMap.subscribe(params => {
+      console.log(params);
+      this.id = params.get('id');
+      this.type = params.get('type');
+      console.log(this.type);
+      if (this.type == 'movie') {
+        this.callSimilarMovies(this.id);
+        this.apimovieService.getDetailsMovie(this.id).subscribe((data: Array<Object>) => {
+          console.log(data);
+          this.details = data;
+        });
+      } else if (this.type == 'tv') {
+        this.callSimilarTv(this.id);
+        this.apimovieService.getDetailsTv(this.id).subscribe((data: Array<Object>) => {
+          console.log(data);
+          this.details = data;
+        });
+      } else {
+
+      }
+
+      //this.detail=details.find(p => p.id==this.id);   
+    });
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
-  goToLink(url: string){
+  goToLink(url: string) {
     window.open(url, "_blank");
   }
 
-  getSimilarMovies(idSimilar){
-    this.apimovieService.getSimilar(idSimilar, this.numbpage).subscribe((data: Array<Object>) => {
+  callSimilarMovies(idSimilar) {
+    this.apimovieService.getSimilarMovie(idSimilar, this.numbpage).subscribe((data: Array<Object>) => {
+      console.log(data);
+      this.similar = data;
+    });
+  }
+
+  callSimilarTv(idSimilar) {
+    this.apimovieService.getSimilarTv(idSimilar, this.numbpage).subscribe((data: Array<Object>) => {
       console.log(data);
       this.similar = data;
     });

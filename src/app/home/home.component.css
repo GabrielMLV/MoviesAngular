@@ -97,11 +97,12 @@
   color: #f03a7f;
 }
 .uk-card .uk-overlay-primary {
-  padding: 0.5rem;
+  color:white;
+  padding: 1rem;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  opacity: 0.7;
+  /* opacity: 1; */
 }
 img[data-src][src*="data:image"] {
   background: rgba(0, 0, 0, 0.1);
