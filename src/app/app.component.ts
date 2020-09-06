@@ -9,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'movies-gm';
-
   constructor(private apimovieService: ApimovieService, private router: Router) { }
 
   ngOnInit() {
     //this.callTrendDay(this.numbpage);
-    this.router.navigate(['/trends']);
+    this.router.navigate(['/home']);
   }
+
+
 
 
 

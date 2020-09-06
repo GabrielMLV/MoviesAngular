@@ -7,10 +7,14 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
+
 export class DetailComponent implements OnInit {
+
   public details;
   private id;
-
+  public similar;
+  public detailNamePage = "Detalhes";
+  public numbpage = 1;
   constructor(private apimovieService: ApimovieService,private _Activatedroute:ActivatedRoute, private router: Router) { }
   /* Using Subscribe */
   sub;
@@ -18,6 +22,7 @@ export class DetailComponent implements OnInit {
     this.sub=this._Activatedroute.paramMap.subscribe(params => { 
        console.log(params);
        this.id = params.get('id'); 
+       this.getSimilarMovies(this.id);
        this.apimovieService.getDetails(this.id).subscribe((data: Array<Object>) => {
         console.log(data);
         this.details = data;
@@ -32,6 +37,13 @@ export class DetailComponent implements OnInit {
 
   goToLink(url: string){
     window.open(url, "_blank");
+  }
+
+  getSimilarMovies(idSimilar){
+    this.apimovieService.getSimilar(idSimilar, this.numbpage).subscribe((data: Array<Object>) => {
+      console.log(data);
+      this.similar = data;
+    });
   }
 
   timeConvert(n) {

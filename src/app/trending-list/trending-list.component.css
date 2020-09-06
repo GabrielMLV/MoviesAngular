@@ -43,7 +43,7 @@
     border-radius: 3px;
   }
   .uk-card:hover {
-    box-shadow: 0 0 0 7px rgba(0,0,0,0.045);
+    box-shadow: 0 0 0 7px rgba(0, 0, 0, 0.13);
   }
   .uk-card .uk-inline {
     z-index: 99;
@@ -171,3 +171,42 @@
     border-radius: 3px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.1);
   }
+
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #a5a5a5;
+    border-right: none;
+    padding: 5px;
+    height: 25px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #5a5a5a;
+    padding-left: 10px;
+  }
+  
+  .searchTerm:focus{
+    color: #313131;
+    border: 3px solid #313131;
+  }
+  
+  .searchButton {
+    width: 50px;
+    height: 41px;
+    border: 1px solid #313131;
+    background: #313131;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+
+
+  

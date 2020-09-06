@@ -3,13 +3,13 @@ import { ApimovieService } from '../apimovie.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-trending-list',
-  templateUrl: './trending-list.component.html',
-  styleUrls: ['./trending-list.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class TrendingListComponent implements OnInit {
+export class HomeComponent implements OnInit {
   public numbpage = 1;
-  public trends;
+  public trendsHome;
   public searchMovieTrend;
   public imgDefault = "../../assets/notImg.png";
 
@@ -22,14 +22,14 @@ export class TrendingListComponent implements OnInit {
   callTrendDay(numbpage: number) {
     this.apimovieService.getTrendingDay(numbpage).subscribe((data: Array<Object>) => {
       console.log(data);
-      this.trends = data;
+      this.trendsHome = data;
     });
   }
 
   callMovieSearch(search, numbpage) {
     this.apimovieService.getMultiSearch(search, numbpage).subscribe((data: Array<Object>) => {
       console.log(data);
-      this.trends = data;
+      this.trendsHome = data;
     }
     );
   }
@@ -39,6 +39,5 @@ export class TrendingListComponent implements OnInit {
     //console.log(this.searchMovieTrend);
     this.callMovieSearch(this.searchMovieTrend, this.numbpage);
   }
-
 
 }

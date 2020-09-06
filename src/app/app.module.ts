@@ -19,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { routing } from './app-routing.module';
 import { TrendingListComponent } from './trending-list/trending-list.component';
 import { DetailComponent } from './detail/detail.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DetailComponent } from './detail/detail.component';
     MovieCreateComponent,
     MovieListComponent,
     TrendingListComponent,
-    DetailComponent
+    DetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
