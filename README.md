@@ -1,4 +1,6 @@
-# MoviesGm
+# Filmes e séries
+
+Atualmente uma versão web pode ser acessada [Aqui](https://moviegm-63c1b.web.app/trends).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
