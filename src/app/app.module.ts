@@ -20,6 +20,7 @@ import { routing } from './app-routing.module';
 import { TrendingListComponent } from './trending-list/trending-list.component';
 import { DetailComponent } from './detail/detail.component';
 import { HomeComponent } from './home/home.component';
+import { ResultSearchComponent } from './result-search/result-search.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     MovieListComponent,
     TrendingListComponent,
     DetailComponent,
-    HomeComponent
+    HomeComponent,
+    ResultSearchComponent
   ],
   imports: [
     BrowserModule,

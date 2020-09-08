@@ -6,6 +6,7 @@ import { MovieCreateComponent } from './movie-create/movie-create.component';
 import { TrendingListComponent } from './trending-list/trending-list.component';
 import { DetailComponent } from './detail/detail.component';
 import { HomeComponent } from './home/home.component';
+import { ResultSearchComponent } from './result-search/result-search.component';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'trends', component: TrendingListComponent },
   { path: 'detail/:type/:id', component: DetailComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'search/:pesquisa', component: ResultSearchComponent },
   { path: '**', redirectTo: '' }
 ];
 

@@ -35,9 +35,9 @@ export class TrendingListComponent implements OnInit {
   }
 
   goMovieSearch() {
-    //this.router.navigate(['/movie']);
+    this.router.navigate(['/search', this.searchMovieTrend]);
     //console.log(this.searchMovieTrend);
-    this.callMovieSearch(this.searchMovieTrend, this.numbpage);
+    //this.callMovieSearch(this.searchMovieTrend, this.numbpage);
   }
 
 

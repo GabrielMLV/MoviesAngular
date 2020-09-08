@@ -13,15 +13,15 @@ export class ApimovieService {
   constructor(private httpClient: HttpClient) { }
 
   getMovies(numbpage) {
-    return this.httpClient.get('' + this.URL + '/movie/popular?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage + '').pipe(catchError(this.handleError));
+    return this.httpClient.get('' + this.URL + '/movie/popular?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage + '&include_adult=false').pipe(catchError(this.handleError));
   }
 
   getTv(numbpage) {
-    return this.httpClient.get('' + this.URL + '/tv/popular?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage + '').pipe(catchError(this.handleError));
+    return this.httpClient.get('' + this.URL + '/tv/popular?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage + '&include_adult=false').pipe(catchError(this.handleError));
   }
 
   getMoviesUpcoming() {
-    return this.httpClient.get('' + this.URL + '/movie/upcoming?api_key=' + this.key_id + '&language=pt-BR&page=1').pipe(catchError(this.handleError));
+    return this.httpClient.get('' + this.URL + '/movie/upcoming?api_key=' + this.key_id + '&language=pt-BR&page=1&include_adult=false').pipe(catchError(this.handleError));
   }
 
   getMoviesSearch(search, numbpage) {
@@ -37,19 +37,19 @@ export class ApimovieService {
   }
 
   getDetailsMovie(id) {
-    return this.httpClient.get('' + this.URL + '/movie/'+id+'?api_key=' + this.key_id + '&language=pt-BR' + '').pipe(catchError(this.handleError));
+    return this.httpClient.get('' + this.URL + '/movie/'+id+'?api_key=' + this.key_id + '&language=pt-BR' + '&include_adult=false').pipe(catchError(this.handleError));
   }
 
   getDetailsTv(id) {
-    return this.httpClient.get('' + this.URL + '/tv/'+id+'?api_key=' + this.key_id + '&language=pt-BR' + '').pipe(catchError(this.handleError));
+    return this.httpClient.get('' + this.URL + '/tv/'+id+'?api_key=' + this.key_id + '&language=pt-BR' + '&include_adult=false').pipe(catchError(this.handleError));
   }
 
   getSimilarMovie(id, numbpage) {
-    return this.httpClient.get('' + this.URL + '/movie/'+id+'/similar?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage +'').pipe(catchError(this.handleError));
+    return this.httpClient.get('' + this.URL + '/movie/'+id+'/similar?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage +'&include_adult=false').pipe(catchError(this.handleError));
   }
 
   getSimilarTv(id, numbpage) {
-    return this.httpClient.get('' + this.URL + '/tv/'+id+'/similar?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage +'').pipe(catchError(this.handleError));
+    return this.httpClient.get('' + this.URL + '/tv/'+id+'/similar?api_key=' + this.key_id + '&language=pt-BR&page=' + numbpage +'&include_adult=false').pipe(catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {
